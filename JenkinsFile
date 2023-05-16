@@ -1,0 +1,22 @@
+pipeline{
+    agent any 
+    stages{
+        stage("Git Checkout"){
+            steps{
+            git branch: 'main', url: 'https://github.com/rajatgithubaccount1234/demo-counter-app.git'
+            }
+            
+        }
+    }
+    post{
+        always{
+            echo "========always========"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
